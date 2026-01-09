@@ -5,11 +5,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sudoku Kolor</title>
-  <script type="module" crossorigin src="./assets/index-BCgWrj1D.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-BV4MBlgf.css">
+  <script type="module" crossorigin src="./assets/index-AKvbUfbY.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DtwKHLqc.css">
 </head>
 
 <body>
+
+    <!-- Landing Page Overlay -->
+    <div id="landing-page">
+        <div class="landing-content">
+            <h1 class="landing-title">SUDOKU <span class="neon-text">KOLOR</span></h1>
+            <p class="landing-slogan">Desafía tu Mente. Domina la Lógica.</p>
+            
+            <div class="benefits-container">
+                <div class="benefit-card">
+                    <span class="benefit-icon">🧠</span>
+                    <h3>Memoria</h3>
+                    <p>Potencia tu retención y agilidad mental.</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">💡</span>
+                    <h3>Lógica</h3>
+                    <p>Agudiza tu pensamiento crítico y resolución de problemas.</p>
+                </div>
+            </div>
+
+            <button id="start-game-btn" class="pulsing-btn">JUGAR AHORA</button>
+            <button id="instructions-btn" class="secondary-btn">Cómo Jugar</button>
+        </div>
+        
+        <!-- Instructions Modal (Hidden by default) -->
+        <div id="instructions-modal" class="hidden">
+            <div class="modal-content glass-panel">
+                <h2>¿Cómo Jugar?</h2>
+                <ul>
+                    <li>Rellena las celdas vacías con números del 1 al 9.</li>
+                    <li>Cada fila, columna y recuadro de 3x3 debe contener los números del 1 al 9 sin repetir.</li>
+                    <li>¡Usa la lógica, no adivines!</li>
+                </ul>
+                <button id="close-instructions-btn">Entendido</button>
+            </div>
+        </div>
+    </div>
 
     <div id="game-over-overlay"></div>
     <div class="game-container">

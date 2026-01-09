@@ -500,5 +500,38 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    loadProgress();
+    // --- LANDING PAGE LOGIC ---
+    const landingPage = document.getElementById('landing-page');
+    const startGameBtn = document.getElementById('start-game-btn');
+    const instructionsBtn = document.getElementById('instructions-btn');
+    const instructionsModal = document.getElementById('instructions-modal');
+    const closeInstructionsBtn = document.getElementById('close-instructions-btn');
+
+    function startGame() {
+        landingPage.classList.add('hidden');
+        // Small delay to allow fade out before starting logic
+        setTimeout(() => {
+            landingPage.style.display = 'none';
+            loadProgress(); // Start the game logic
+        }, 500);
+    }
+
+    startGameBtn.addEventListener('click', startGame);
+
+    instructionsBtn.addEventListener('click', () => {
+        instructionsModal.classList.remove('hidden');
+    });
+
+    closeInstructionsBtn.addEventListener('click', () => {
+        instructionsModal.classList.add('hidden');
+    });
+
+    // Close modal if clicking outside
+    instructionsModal.addEventListener('click', (e) => {
+        if (e.target === instructionsModal) {
+            instructionsModal.classList.add('hidden');
+        }
+    });
+
+    // loadProgress(); // REMOVED: Now called by startGame()
 });

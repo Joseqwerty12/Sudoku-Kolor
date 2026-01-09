@@ -729,4 +729,278 @@ h1 {
     #message-container h2 {
         font-size: 1.4em;
     }
+
+}
+
+/* --- LANDING PAGE STYLES --- */
+#landing-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, #1a1a2e 0%, #000000 100%);
+    z-index: 2000;
+    /* Above everything */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    overflow: hidden;
+    transition: opacity 0.5s ease-out, visibility 0.5s;
+}
+
+#landing-page.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.landing-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    max-width: 800px;
+    width: 90%;
+}
+
+.landing-title {
+    font-size: 4em;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 10px;
+    letter-spacing: 5px;
+    animation: slideDown 1s ease-out;
+}
+
+.neon-text {
+    color: var(--num-6-color);
+    /* Cyan */
+    text-shadow: 0 0 10px var(--num-6-color), 0 0 20px var(--num-6-color), 0 0 40px var(--num-6-color);
+}
+
+.landing-slogan {
+    font-size: 1.5em;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+    font-weight: 300;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.benefits-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 50px;
+    animation: fadeInUp 1s ease-out 0.5s backwards;
+}
+
+.benefit-card {
+    background: rgba(255, 255, 255, 0.05);
+    /* Glassmorphism */
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.benefit-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
+    border-color: var(--num-6-color);
+}
+
+.benefit-icon {
+    font-size: 3em;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.benefit-card h3 {
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.benefit-card p {
+    color: #cccc;
+    font-size: 0.9em;
+}
+
+.pulsing-btn {
+    padding: 20px 60px;
+    font-size: 1.8em;
+    font-weight: 700;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(233, 69, 96, 0.6);
+    animation: pulse 2s infinite;
+    transition: transform 0.2s;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.pulsing-btn:hover {
+    transform: scale(1.05);
+    background-color: #ff5e78;
+}
+
+.secondary-btn {
+    background: transparent;
+    border: 2px solid var(--text-secondary);
+    color: var(--text-secondary);
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.3s;
+}
+
+.secondary-btn:hover {
+    background: var(--text-secondary);
+    color: var(--bg-primary);
+}
+
+/* Modal Styles */
+#instructions-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 3000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#instructions-modal.hidden {
+    display: none;
+}
+
+.modal-content.glass-panel {
+    background: rgba(22, 33, 62, 0.9);
+    border: 1px solid var(--border-color);
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 500px;
+    text-align: left;
+    color: white;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+}
+
+.modal-content h2 {
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.modal-content ul {
+    margin-bottom: 30px;
+    padding-left: 20px;
+}
+
+.modal-content li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+#close-instructions-btn {
+    width: 100%;
+    padding: 15px;
+    background: var(--calipso-color);
+    border: none;
+    border-radius: 10px;
+    color: #000;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Animations */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(233, 69, 96, 0.7);
+    }
+
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 20px rgba(233, 69, 96, 0);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(233, 69, 96, 0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Landing */
+@media (max-width: 600px) {
+    .landing-title {
+        font-size: 2.5em;
+        letter-spacing: 2px;
+    }
+
+    .landing-slogan {
+        font-size: 1em;
+        margin-bottom: 30px;
+    }
+
+    .benefits-container {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .benefit-card {
+        width: 100%;
+        max-width: 300px;
+        padding: 15px;
+    }
+
+    .benefit-icon {
+        font-size: 2em;
+        margin-bottom: 5px;
+    }
+
+    .pulsing-btn {
+        font-size: 1.2em;
+        padding: 15px 40px;
+    }
 }
