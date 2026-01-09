@@ -1,0 +1,26 @@
+{
+  "name": "sudoku-nova-jp",
+  "version": "1.0.0",
+  "description": "Sudoku Nova Android App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@capacitor-community/admob": "^7.2.0",
+    "@capacitor/android": "^7.4.4",
+    "@capacitor/cli": "^7.4.4",
+    "@capacitor/core": "^7.4.4",
+    "vite": "^7.2.7"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
+    "javascript-obfuscator": "^5.1.0",
+    "rollup-plugin-obfuscator": "^1.1.0"
+  }
+}

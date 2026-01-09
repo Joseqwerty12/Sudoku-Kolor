@@ -1,0 +1,87 @@
+BITÁCORA COMPLETA DEL PROYECTO: SUDOKU NOVA
+Desde la idea inicial hasta la publicación en Google Play Store.
+
+---
+
+FASE 1: DESARROLLO DEL JUEGO (WEB)
+1.  **Concepto Inicial:**
+    *   Objetivo: Crear un juego de Sudoku clásico pero con un diseño moderno y atractivo.
+    *   Tecnología: HTML5, CSS3 (Vanilla), JavaScript.
+
+2.  **Lógica del Juego (`game.js`):**
+    *   Se implementó un algoritmo de "Backtracking" para generar tableros de Sudoku válidos y con solución única.
+    *   Sistema de dificultad: Eliminación aleatoria de celdas según el nivel (más celdas vacías = mayor dificultad).
+    *   Validación de movimientos: Reglas de fila, columna y cuadrante 3x3.
+
+3.  **Diseño de Interfaz (UI/UX):**
+    *   Estilo: "Cyberpunk/Neón" con fondo oscuro y colores vibrantes (cian, magenta, lima).
+    *   Feedback visual:
+        *   Resaltado de celdas relacionadas (fila/columna/bloque) al seleccionar un número.
+        *   Animaciones de "onda" al completar una fila o columna.
+        *   Efectos de error (sacudida roja) y acierto (brillo).
+
+4.  **Funcionalidades Agregadas:**
+    *   **Sistema de Vidas:** Límite de 5 errores antes del "Game Over".
+    *   **Pistas:** Botón para revelar una celda (con penalización de puntos).
+    *   **Historial:** Registro de movimientos visible para el usuario.
+    *   **Persistencia:** Guardado automático en `localStorage` para no perder el progreso si se cierra el navegador.
+
+---
+
+FASE 2: CONVERSIÓN A APLICACIÓN MÓVIL (ANDROID)
+1.  **Entorno Híbrido:**
+    *   Se utilizó **Vite** como empaquetador web.
+    *   Se integró **Capacitor (JS)** para convertir la web en una app nativa de Android.
+
+2.  **Configuración del Proyecto:**
+    *   Inicialización de Capacitor: `npx cap init`.
+    *   Creación de la plataforma Android: `npx cap add android`.
+    *   Ajustes en `capacitor.config.json` para definir el ID de paquete (`com.JPP.SudokuNova`).
+
+---
+
+FASE 3: MONETIZACIÓN Y PREPARACIÓN TÉCNICA
+1.  **Integración de Publicidad (AdMob):**
+    *   Instalación del plugin: `@capacitor-community/admob`.
+    *   Creación del script `admob.js` para inicializar y mostrar banners inferiores.
+    *   Configuración de IDs de aplicación y bloques de anuncios en `AndroidManifest.xml`.
+
+2.  **Problemas Técnicos Resueltos:**
+    *   **Conflicto de Java:** El plugin de AdMob requería Java 21, pero el entorno tenía Java 17. Se forzó la compatibilidad (downgrade) en los archivos `build.gradle` de Android y del plugin.
+    *   **Permisos:** Se añadieron permisos de INTERNET y AD_ID en el manifiesto.
+
+---
+
+FASE 4: PUBLICACIÓN EN GOOGLE PLAY STORE (PROCESO FINAL)
+1.  **Firma Digital (Keystore):**
+    *   Se generó una llave de seguridad (`.jks`) mediante línea de comandos (Java Keytool).
+    *   Se configuró `build.gradle` para firmar automáticamente la versión de lanzamiento (Release) usando un archivo `keystore.properties` seguro.
+
+2.  **Ofuscación (Protección de Código):**
+    *   Solicitud: Proteger el código fuente contra ingeniería inversa.
+    *   Acción: Se implementó `rollup-plugin-obfuscator` en la configuración de Vite.
+    *   Resultado: El código JS final es ilegible para humanos pero funcional para la máquina.
+
+3.  **Generación del Artefacto:**
+    *   Comando final: `npm run build` -> `npx cap sync` -> `gradlew bundleRelease`.
+    *   Resultado: Archivo `app-release.aab` listo para subir.
+
+4.  **Marketing y Ficha de Tienda:**
+    *   **Textos:** Redacción de Título, Descripción Breve y Completa optimizadas (ASO).
+    *   **Icono:** Iteración de diseños con IA hasta llegar al concepto "WIN TOP ACE" en estilo neón sólido.
+    *   **Capturas:** Screenshots reales del juego + 1 imagen promocional ("Level Completed") generada por IA para cumplir requisitos de Google.
+
+5.  **Gestión en Google Play Console:**
+    *   **Cuestionarios:** Se completaron todas las declaraciones obligatorias (Contenido, Seguridad de Datos, IARC, etc.).
+    *   **Privacidad:** Se redactó y alojó una Política de Privacidad en Google Docs para cumplir con los requisitos de AdMob.
+    *   **Errores de Subida:**
+        *   *Error:* "Texto fuera de etiquetas de idioma". *Solución:* Añadir etiquetas `<es-ES>`.
+        *   *Advertencia:* "Falta archivo de desofuscación". *Solución:* Ignorar (es intencional).
+
+6.  **Estado Final:**
+    *   La aplicación fue enviada exitosamente a revisión en el canal de **Producción**.
+    *   Estado actual: **En revisión** (Pendiente de aprobación por Google).
+
+---
+FIN DEL DOCUMENTO
+Este archivo contiene el historial completo del ciclo de vida del desarrollo de "Sudoku Nova".

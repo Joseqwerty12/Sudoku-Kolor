@@ -1,0 +1,16 @@
+Item,BO Despliegue,Sucursales o Recintos,Proyecto o MAD,Jefe de Proyecto,SubGerente,Estado,% Avance,Distribución en Tiempo
+REG.CIVIL,Victor Quezada,218,E-23OP27,Eduardo Guerra,Rodrigo Molina,En Ejecución,0.81,0.30
+CENCOSUD,Victor Quezada,45,E-24OP07,Claudio Alonso,Claudia Saavedra,En Ejecución,0.81,0.40
+MIGRACION TERC,Victor Quezada,49,E-24OP29,Juan Pablo Ibacache,Claudia Saavedra,En Ejecución,0.95,0.30
+ENEX,Alejandro Sepulveda,466,OP 283385,Eugenia Gonzalez,Claudia Saavedra,En Ejecución,0.05,0.50
+Migración Bco Chile,Alejandro Sepulveda,241,N° Comercial 335973,Mario Aguirre,Claudia Saavedra,En Ejecución,0.70,0.10
+ADM.FALAB,Alejandro Sepulveda,171,E-23OP07,Mario Huanquilef,Claudia Saavedra,En Ejecución,0.90,0.20
+ADM.FALAB-Enlaces II,Alejandro Sepulveda,71,E-24OP05,Mario Huanquilef,Claudia Saavedra,En Ejecución,0.85,0.20
+MIGRACION STARLINK,Alejandro Trincado,700,E-24OP08,Jorge Troncoso,Claudia Saavedra,En Ejecución,0.78,0.60
+ADUANA,Alejandro Trincado,142,E-24OP17,Eugenio Fuentes,Rodrigo Molina,En Ejecución,0.88,0.35
+MINSAL,Alejandro Trincado,1000,OP 366109,Marcos Ciudad,Rodrigo Molina,Pendiente,0.00,0.05
+TELETRACK,Pablo Arancibia,103,8147959,Jorge Troncoso,Claudia Saavedra,En Ejecución,0.70,0.50
+TIENDA ENTEL G.FUENZALIDA,Pablo Arancibia,4,8147643,Jorge Troncoso,Claudia Saavedra,En Ejecución,0.20,0.20
+ENTEL VPN MPLS,Pablo Arancibia,2,8147751,Gonzalo Soto,Claudia Saavedra,En Ejecución,0.80,0.10
+TORRE ENTEL,Pablo Arancibia,1,8147783,Jorge Troncoso,Claudia Saavedra,En Ejecución,0.90,0.10
+ENTEL VPN MPLS ACCE TKIP,Pablo Arancibia,3,MAD Interno,Jorge Troncoso,Claudia Saavedra,En Ejecución,0.15,0.10

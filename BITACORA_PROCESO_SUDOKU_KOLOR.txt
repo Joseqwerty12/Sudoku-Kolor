@@ -1,0 +1,112 @@
+BITÁCORA DE PROCESO: PUBLICACIÓN DE SUDOKU NOVA
+FECHA: 25-26 Diciembre 2025
+
+RESUMEN:
+Este documento registra todo el proceso técnico y administrativo realizado para llevar el juego "Sudoku Nova" desde el código fuente hasta su envío a revisión en la Google Play Store, incluyendo la resolución de errores y dudas surgidas en el camino.
+
+---
+
+1. RECUPERACIÓN Y PREPARACIÓN
+- Situación inicial: Se reinstaló el entorno (Antigravity) y se retomó el proyecto.
+- Estado del proyecto: El juego ya tenía AdMob integrado.
+- Objetivo: Generar el archivo final (.aab) y publicar.
+
+2. CONSTRUCCIÓN Y FIRMA (ANDROID STUDIO / GRADLE)
+- Desafío: No se quería usar Android Studio manualmente. Se optó por línea de comandos.
+- Generación de Keystore:
+  - Se intentó usar `keytool` directamente pero no estaba en el PATH.
+  - Solución: Se localizó Java y se ejecutó el comando usando la ruta completa del JDK 17.
+  - Archivo generado: `my-release-key.jks` con alias `my-key-alias`.
+- Configuración de Firma:
+  - Se creó `keystore.properties` para no quemar contraseñas en el código.
+  - Se modificó `android/app/build.gradle` para leer estas propiedades y firmar automáticamente la versión 'release'.
+
+3. RESOLUCIÓN DE ERRORES DE COMPILACIÓN (JAVA VERSION)
+- Error: El plugin de AdMob requería Java 21, pero el sistema tenía Java 17.
+- Solución:
+  - Se modificó `node_modules/@capacitor-community/admob/android/build.gradle` para bajar la compatibilidad a Java 17.
+  - Se modificó `android/app/capacitor.build.gradle` para hacer lo mismo.
+  - Se forzó la compatibilidad en `android/app/build.gradle`.
+- Resultado: Compilación exitosa del archivo `.aab`.
+
+4. OFUSCACIÓN DE CÓDIGO (SEGURIDAD)
+- Solicitud: Proteger el código fuente para que no sea legible.
+- Acción:
+  - Se instaló `rollup-plugin-obfuscator`.
+  - Se configuró `vite.config.js` con opciones de ofuscación (renombrado hexadecimal, aplanamiento de control, etc.).
+  - Se reconstruyó el proyecto (`npm run build` + `npx cap sync` + `gradlew bundleRelease`).
+- Resultado: Nuevo archivo `.aab` generado con el código JavaScript protegido.
+
+5. PREPARACIÓN DE LA FICHA DE TIENDA (ASSETS)
+- Textos: Se creó `FICHA_PLAY_STORE.md` con Título, Descripción Breve y Completa.
+- Imágenes Generadas (IA):
+  - Icono v1: Estilo neón simple.
+  - Icono v2: Texto "SOY MUY TOP" (descartado por estilo).
+  - Icono v3: Texto "SOY MUY TOP" sólido (gustó).
+  - Icono v4 (Final): Texto "WIN TOP ACE" sólido estilo neón.
+  - Gráfico de funciones: Abstracto tecnológico.
+  - Capturas de pantalla: Se tomaron capturas reales del juego corriendo en servidor local.
+  - Captura extra: Se generó una imagen promocional "LEVEL COMPLETED" para cumplir el requisito de 4 imágenes de Google.
+- Organización: Se movieron todas las imágenes finales a la carpeta `play_store_assets`.
+
+6. GESTIÓN EN GOOGLE PLAY CONSOLE (BUROCRACIA)
+- Creación de App: "Sudoku Nova: Lógica y Relax" (Juego, Gratis).
+- Cuestionarios "Contenido de la aplicación":
+  - Acceso: Sin restricciones.
+  - Anuncios: Sí tiene (AdMob).
+  - Clasificación (IARC): Juego, sin violencia/miedo -> PEGI 3 / Para todos.
+  - Audiencia: +13 años (para evitar leyes estrictas de niños).
+  - Noticias/COVID/Gobierno/Finanzas/Salud: Todo marcado como "No".
+- Política de Privacidad:
+  - Se generó el texto legal en `POLITICA_PRIVACIDAD.md`.
+  - Se subió a Google Docs para obtener un enlace público.
+  - Se añadió el enlace para "Solicitud de eliminación de datos" (requisito nuevo de Google).
+- Seguridad de los Datos (Data Safety):
+  - Se declaró que AdMob recolecta "Identificadores de dispositivo" para "Marketing y Análisis".
+  - Se declaró ID de Publicidad.
+
+7. LANZAMIENTO (PRODUCCIÓN)
+- Configuración de Países: Se seleccionaron todos los países.
+- Subida del archivo: Se subió el `.aab` ofuscado.
+- Error "Texto fuera de etiquetas":
+  - Problema: Las notas de la versión no tenían etiquetas de idioma.
+  - Solución: Se envolvió el texto en `<es-ES> ... </es-ES>`.
+- Advertencia "Archivo de desofuscación":
+  - Google avisó que falta el archivo de mapeo. Se ignoró (es el comportamiento deseado al ofuscar).
+- Estado Final: Enviado a revisión ("En revisión").
+
+8. DUDAS RESUELTAS DURANTE EL PROCESO
+- ¿Borrar la app antigua?: No fue necesario, solo se reemplazó el archivo en la versión.
+- ¿Error 200 en URL?: Es un mensaje de éxito (OK), no un error.
+- ¿Barra de actualización gris?: Normal en la versión 1.0.
+- ¿Nombre temporal "com.JPP..."?: Normal hasta que se apruebe la app.
+
+---
+FIN DEL PROCESO
+El juego se encuentra actualmente en espera de aprobación por parte del equipo de Google Play.
+
+---
+
+SESI�N EXTRA: CAMBIO DE NOMBRE Y ESTRATEGIA DE TESTERS (29 Diciembre 2025)
+
+1. CAMBIO DE IDENTIDAD (SUDOKU KOLOR)
+- Cambio de nombre: De 'Sudoku Nova' a 'Sudoku Kolor'.
+- Archivos modificados: package.json, strings.xml, capacitor.config.json, build.gradle (versionCode reiniciado, package name 'com.JPP.SudokuKolor').
+- Assets actualizados: Se gener� un nuevo set gr�fico completo (Icono, Gr�fico de Funciones) inspirado en 'Kolor' (Ne�n/C�smico).
+- Capturas de pantalla: Se generaron 6 capturas verticales (9:16) simulando la interfaz real del juego en situaciones de victoria, error y men�. Se guardaron en 'play_store_assets'.
+
+2. RELANZAMIENTO EN CONSOLA
+- Estrategia: Se cre� una NUEVA entrada de aplicaci�n en Google Play Console para 'Sudoku Kolor' (limpiando el historial de Nova).
+- Estado: Ficha de tienda completada con los nuevos textos y gr�ficos.
+- Archivo .aab: Versi�n 1.0 generada y lista.
+
+3. ESTRATEGIA DE 20 TESTERS
+- Problema: Falta de testers conocidos para el requisito de 14 d�as.
+- Soluci�n adoptada: Uso de la app 'Testers Community'.
+- Estado actual: Usuario registrado en la comunidad y en proceso de conseguir puntos para publicar su solicitud de testers.
+- Enlaces clave: El usuario ya sabe d�nde obtener los links (Web y Android) en la consola para compartirlos.
+
+PROXIMOS PASOS (Al retomar):
+- Confirmar que se consiguieron los 20 testers.
+- Verificar el estado 'En revisi�n' de la pista cerrada.
+
