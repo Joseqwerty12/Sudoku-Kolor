@@ -1,3 +1,7 @@
-node_modules/  
-android/  
-.DS_Store  
+node_modules/
+android/
+.DS_Store
+*.csv
+*.xlsx
+*.cjs
+csv-dashboard/
