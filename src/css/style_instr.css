@@ -1,0 +1,65 @@
+/* --- INSTRUCTIONS MODAL STYLES --- */
+.instructions-text {
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 0.95em;
+    line-height: 1.6;
+}
+
+.instructions-text h3 {
+    color: var(--calipso-color);
+    /* Cyan-ish */
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: 1.1em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 3px;
+}
+
+.instructions-text ul {
+    list-style: none;
+    /* Custom bullets maybe? */
+    padding-left: 10px;
+}
+
+.instructions-text li {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 15px;
+}
+
+.instructions-text li::before {
+    content: "•";
+    color: var(--num-4-color);
+    /* Yellow */
+    position: absolute;
+    left: 0;
+}
+
+.instructions-text .intro {
+    font-style: italic;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.warning {
+    color: var(--incorrect-color);
+    /* Red */
+    font-weight: bold;
+}
+
+.tip-box {
+    background: rgba(255, 255, 255, 0.1);
+    border-left: 4px solid var(--num-6-color);
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+/* Ensure modal is wide enough for text */
+.modal-content {
+    max-width: 500px;
+    width: 90%;
+}

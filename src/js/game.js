@@ -504,6 +504,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const landingPage = document.getElementById('landing-page');
     const startGameBtn = document.getElementById('start-game-btn');
     const instructionsBtn = document.getElementById('instructions-btn');
+    const instructionsToggle = document.getElementById('instructions-toggle');
     const instructionsModal = document.getElementById('instructions-modal');
     const closeInstructionsBtn = document.getElementById('close-instructions-btn');
 
@@ -518,9 +519,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     startGameBtn.addEventListener('click', startGame);
 
-    instructionsBtn.addEventListener('click', () => {
+    const openInstructions = () => {
         instructionsModal.classList.remove('hidden');
-    });
+    };
+
+    if (instructionsBtn) instructionsBtn.addEventListener('click', openInstructions);
+    if (instructionsToggle) instructionsToggle.addEventListener('click', openInstructions);
+
 
     closeInstructionsBtn.addEventListener('click', () => {
         instructionsModal.classList.add('hidden');
