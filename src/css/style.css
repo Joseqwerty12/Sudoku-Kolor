@@ -794,6 +794,8 @@ h1 {
     gap: 30px;
     margin-bottom: 50px;
     animation: fadeInUp 1s ease-out 0.5s backwards;
+    flex-wrap: wrap;
+    /* Allow wrapping for more cards */
 }
 
 .benefit-card {
@@ -835,12 +837,22 @@ h1 {
     padding: 20px 60px;
     font-size: 1.8em;
     font-weight: 700;
-    background-color: var(--accent-color);
-    color: white;
+    background-color: #FF6B00;
+    /* Orange background */
+    color: #FFD700;
+    /* Yellow text */
+    text-shadow:
+        -2px -2px 0 #000,
+        2px -2px 0 #000,
+        -2px 2px 0 #000,
+        2px 2px 0 #000,
+        3px 3px 5px rgba(0, 0, 0, 0.5);
+    /* Strong black border + Shadow */
     border: none;
     border-radius: 50px;
     cursor: pointer;
-    box-shadow: 0 0 20px rgba(233, 69, 96, 0.6);
+    box-shadow: 0 0 20px rgba(255, 107, 0, 0.6);
+    /* Adjusted shadow color */
     animation: pulse 2s infinite;
     transition: transform 0.2s;
     margin-bottom: 20px;
@@ -849,7 +861,8 @@ h1 {
 
 .pulsing-btn:hover {
     transform: scale(1.05);
-    background-color: #ff5e78;
+    background-color: #FF8533;
+    /* Lighter orange on hover */
 }
 
 .secondary-btn {
@@ -1003,7 +1016,9 @@ h1 {
         font-size: 1.2em;
         padding: 15px 40px;
     }
-}/* --- NEON LETTERS --- */
+}
+
+/* --- NEON LETTERS --- */
 .neon-letter {
     display: inline-block;
     color: #fff;
@@ -1213,7 +1228,9 @@ h1 {
     #history-toggle {
         right: 20px;
     }
-}/* --- INSTRUCTIONS MODAL STYLES --- */
+}
+
+/* --- INSTRUCTIONS MODAL STYLES --- */
 .instructions-text {
     text-align: left;
     margin-bottom: 20px;
