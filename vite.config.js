@@ -40,7 +40,7 @@ export default defineConfig({
     })
   ],
   build: {
-    outDir: '../www',
+    outDir: '../docs',
     emptyOutDir: true,
   },
 });
