@@ -1283,3 +1283,4 @@ h1 {
     max-width: 500px;
     width: 90%;
 }
+.hidden { display: none !important; }
