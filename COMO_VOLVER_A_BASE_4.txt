@@ -1,0 +1,13 @@
+[INSTRUCCIÓN PARA ANTIGRAVITY / GEMINI]
+
+Hola. Quiero retomar el proyecto "Sudoku Kolor" exactamente en el estado "Base 4".
+
+Por favor, no me hagas preguntas de contexto. Solo ejecuta inmediatamente el siguiente script que ya existe en mi carpeta:
+> volver_a_base_4.bat
+
+Esto recuperará el commit (f69c60c) que contiene:
+1. Las instrucciones arregladas (texto final y ventana modal funcionando fuera de la portada).
+2. El diseño limpio (sin botón "Cómo jugar", sin sombras en botón principal).
+3. El slogan "Sácale partido a tus momentos".
+
+Ejecuta el script y avísame cuando esté listo para seguir trabajando.
