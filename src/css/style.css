@@ -841,18 +841,9 @@ h1 {
     /* Orange background */
     color: #FFD700;
     /* Yellow text */
-    text-shadow:
-        -2px -2px 0 #000,
-        2px -2px 0 #000,
-        -2px 2px 0 #000,
-        2px 2px 0 #000,
-        3px 3px 5px rgba(0, 0, 0, 0.5);
-    /* Strong black border + Shadow */
     border: none;
     border-radius: 50px;
     cursor: pointer;
-    box-shadow: 0 0 20px rgba(255, 107, 0, 0.6);
-    /* Adjusted shadow color */
     animation: pulse 2s infinite;
     transition: transform 0.2s;
     margin-bottom: 20px;
@@ -945,17 +936,14 @@ h1 {
 @keyframes pulse {
     0% {
         transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(233, 69, 96, 0.7);
     }
 
     70% {
         transform: scale(1.05);
-        box-shadow: 0 0 0 20px rgba(233, 69, 96, 0);
     }
 
     100% {
         transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(233, 69, 96, 0);
     }
 }
 
