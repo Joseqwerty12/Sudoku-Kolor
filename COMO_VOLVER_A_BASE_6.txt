@@ -1,0 +1,6 @@
+BASE 6 CREADA
+- Botones laterales arreglados.
+- Botón PayPal integrado y estilizado.
+- Instrucciones revertidas al texto original (Párrafos) sin imagen.
+- Despliegue en GitHub realizado.
+Estado: CORRECTO Y APROBADO.
