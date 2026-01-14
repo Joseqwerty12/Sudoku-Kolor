@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Kolor</title>
+    <link rel="stylesheet" href="css/style.css?v=5">
+</head>
+
+<body>
+
+    <!-- Landing Page Overlay -->
+    <div id="landing-page">
+        <div class="landing-content">
+            <h1 class="landing-title">
+                <span class="neon-letter n-red">S</span>
+                <span class="neon-letter n-orange">u</span>
+                <span class="neon-letter n-yellow">d</span>
+                <span class="neon-letter n-green">o</span>
+                <span class="neon-letter n-cyan">k</span>
+                <span class="neon-letter n-indigo">u</span>
+                <span class="neon-letter n-violet">&nbsp;</span>
+                <span class="neon-letter n-purple">K</span>
+                <span class="neon-letter n-pink">o</span>
+                <span class="neon-letter n-blue">l</span>
+                <span class="neon-letter n-teal">o</span>
+                <span class="neon-letter n-lime">r</span>
+            </h1>
+            <p class="landing-slogan">Make the most of your moments.</p>
+
+            <div class="benefits-container">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <img src="assets/granny_cake.png" alt="Memory"
+                            style="width: 150px; height: 150px; object-fit: contain;">
+                    </div>
+                    <h3>Memory</h3>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <img src="assets/patience_fisherman.png" alt="Patience"
+                            style="width: 150px; height: 150px; object-fit: contain;">
+                    </div>
+                    <h3>Patience</h3>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <img src="assets/grandpa_hoe.png" alt="Perseverance"
+                            style="width: 150px; height: 150px; object-fit: contain;">
+                    </div>
+                    <h3>Perseverance</h3>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <img src="assets/logic_woman.png" alt="Logic"
+                            style="width: 150px; height: 150px; object-fit: contain;">
+                    </div>
+                    <h3>Logic</h3>
+                </div>
+            </div>
+
+            <button id="start-game-btn" class="pulsing-btn">PLAY NOW</button>
+
+            <!-- Donation Button -->
+            <div class="donation-container">
+                <a href="https://www.paypal.com/donate/?hosted_button_id=24BTM4LRYKWFG" target="_blank"
+                    class="donate-btn">
+                    Help me keep developing games ❤️
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Instructions Modal (Hidden by default) -->
+    <div id="instructions-modal" class="hidden">
+        <div class="modal-content glass-panel">
+            <h2>Welcome to Sudoku Kolor</h2>
+            <div class="instructions-text">
+                <p>Sudoku Kolor is much more than a game. It's where you put your Memory, Patience, Perseverance, and
+                    Logic into action.</p>
+
+                <p>The striking thing about Sudoku Kolor isn't just the different colored numbers, which makes searching
+                    easier. Unlike normal Sudokus, Sudoku Kolor relies on a unique solution. This means there is only
+                    one valid solution: the original template with all 81 numbers in their correct spots. Standard
+                    Sudokus often allow various number combinations as long as they follow the basic rule of not
+                    repeating numbers in rows or columns.</p>
+
+                <p>To help you complete the board, you start with 3 hints. After using them, you can try combinations in
+                    the empty cells until you find the original numbers. That's when the "Row", "Column", or "Block
+                    Completed" notifications become crucial—they verify that those numbers are placed correctly.</p>
+
+                <p>You strictly must follow the standard rule: do not repeat a number more than once in each row or
+                    column, otherwise, it will be marked as an error.</p>
+
+                <p>Tip: Use your memory to remember the combinations you try. Sometimes it's about remembering where you
+                    placed 3 or 4 numbers, and that's when the game gets interesting. You can only make 5 errors per
+                    level (10 levels total).</p>
+
+                <p>You have all the time you need to reach Level 10. I just recommend not playing too late at night,
+                    because the game will grab you and steal your sleep hours. I say this from experience. Enjoy it!</p>
+            </div>
+            <button id="close-instructions-btn">Got it</button>
+        </div>
+    </div>
+
+
+    <div id="game-over-overlay"></div>
+    <div class="game-container">
+        <header>
+            <h1>Sudoku Kolor</h1>
+            <div class="game-stats">
+                <div class="stat-item"><span>Level <span id="current-level">1</span> / 10</span></div>
+                <div class="stat-item"><span class="stat-value" id="timer">00:00</span></div>
+                <div class="stat-item"><span>Score: <span id="score" class="stat-value">0</span></span></div>
+            </div>
+            <div class="game-stats">
+                <div class="stat-item"><span>Errors: <span id="error-count">0</span> / 5</span></div>
+                <div class="stat-item"><span>Hints: <span id="hints-left">3</span></span></div>
+            </div>
+        </header>
+        <main>
+            <div id="sudoku-board"></div>
+            <div class="number-controls">
+                <button class="number-btn" data-number="1">1</button>
+                <button class="number-btn" data-number="2">2</button>
+                <button class="number-btn" data-number="3">3</button>
+                <button class="number-btn" data-number="4">4</button>
+                <button class="number-btn" data-number="5">5</button>
+                <button class="number-btn" data-number="6">6</button>
+                <button class="number-btn" data-number="7">7</button>
+                <button class="number-btn" data-number="8">8</button>
+                <button class="number-btn" data-number="9">9</button>
+            </div>
+            <div class="action-controls">
+                <button class="action-btn" id="erase-btn">Erase</button>
+                <button class="action-btn" id="hint-btn">Hint</button>
+                <button class="action-btn" id="new-game-btn">New Game</button>
+            </div>
+        </main>
+    </div>
+
+    <div id="message-container">
+        <h2 id="message-title"></h2>
+        <p id="message-text"></p>
+        <button id="message-button"></button>
+    </div>
+
+    <!-- History Panel -->
+    <div id="history-container">
+        <div id="history-header">
+            <h2 id="history-title">Game History</h2>
+            <button id="close-history">&times;</button>
+        </div>
+        <div id="history-list">
+            <div class="empty-history">No history yet</div>
+        </div>
+    </div>
+
+    <div id="side-buttons">
+        <div class="side-btn-wrapper">
+            <button id="instructions-toggle" class="side-btn btn-orange">
+                <span class="btn-icon">📜</span>
+            </button>
+            <span class="btn-label">Instructions</span>
+        </div>
+        <div class="side-btn-wrapper">
+            <button id="history-toggle" class="side-btn btn-purple">
+                <span class="btn-icon">📋</span>
+            </button>
+            <span class="btn-label">History</span>
+        </div>
+    </div>
+
+    <script type="module" src="js/game_en.js"></script>
+</body>
+
+</html>
