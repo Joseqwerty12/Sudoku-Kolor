@@ -1,0 +1,3 @@
+Este archivo es para verificar que la carpeta docs se subió correctamente.
+Si ves esto, todo está bien.
+Fecha: 2026-01-14
