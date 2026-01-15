@@ -1,0 +1,9 @@
+BASE 9 CREADA (ESTADO FINAL PUBLICADO)
+- Versión en Español publicada en GitHub Pages.
+- Versión en Inglés disponible (`index_en.html`).
+- Corrección de diseño para iPad (botones laterales visibles).
+- Botón PayPal configurado para Pesos Chilenos (CLP) en versión español.
+- Guía de publicación en GitHub creada (`GUIA_GITHUB_PAGES.md`).
+- Archivos ZIP de respaldo generados.
+
+Estado: PUBLICADO Y OPTIMIZADO.
