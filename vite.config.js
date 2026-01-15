@@ -42,5 +42,11 @@ export default defineConfig({
   build: {
     outDir: '../docs',
     emptyOutDir: true,
+    rollupOptions: {
+      input: {
+        main: 'src/index.html',
+        english: 'src/index_en.html'
+      }
+    }
   },
 });
